@@ -1,0 +1,318 @@
+{% load crispy_forms_tags %}
+{% load crispy_forms_tags %}
+<!--
+author: W3layouts
+author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% load staticfiles %}
+<title>Farm Smart</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="keywords" content="Agro Harvest Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+	
+  <!-- css files -->
+  
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="{% static '/css/bootstrap.css' %}" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
+    <link href="{% static '/css/style.css' %}" rel='stylesheet' type='text/css' /><!-- custom css -->
+    <link href="{% static '/css/font-awesome.min.css' %}" rel="stylesheet"><!-- fontawesome css -->
+	<!-- //css files -->
+	
+	<link href="{% static '/css/css_slider.css' %}" type="text/css" rel="stylesheet" media="all">
+
+	<!-- google fonts -->
+	<link href="//fonts.googleapis.com/css?family=Thasadith:400,400i,700,700i&amp;subset=latin-ext,thai,vietnamese" rel="stylesheet">
+	<!-- //google fonts -->
+	
+</head>
+<body>
+
+<!-- header -->
+<header>
+	<div class="container">
+		<!-- nav -->
+		<nav class="py-4 d-lg-flex">
+			<div id="logo">
+				<h1> <a href=""><span class="fa fa-leaf"></span> Farm Smart</a></h1>
+			</div>
+			<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
+			<input type="checkbox" id="drop" />
+			<ul class="menu mt-md-2 ml-auto">
+				<li class="mr-lg-4 mr-2 active"><a href="indexs.html">Home</a></li>
+				<li class="dropdown mr-lg-4 mr-2">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Services
+						<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							{% if request.user.id %}
+							<li>  <a href="{% url 'crop:add_profile' %}" class="w3-bar-item w3-button">Add Profile</a></li>
+							<li><a href="{% url 'crop:prefered_crop' %}" class="w3-bar-item w3-button "> Preffered crops</a></li>
+							{% endif %}
+							<li><a href="{% url 'crop:crop_list' %}" class="w3-bar-item w3-button ">All crops</a></li>
+							<li><a href="{% url 'crop:buyer' %}" class="w3-bar-item w3-button "> Buyers</a></li>
+							<li><a href="{% url 'crop:product' %}" class="w3-bar-item w3-button "> Products</a></li>
+							<li><a href="{% url 'crop:event' %}" class="w3-bar-item w3-button "> Events</a></li>
+							
+							
+							
+							
+							{% if request.user.is_staff %}
+							<li><a href="{% url 'crop:add_crop' %}" class="w3-bar-item w3-button "> Add crops</a></li>
+							<li><a href="{% url 'crop:add_land' %}" class="w3-bar-item w3-button">Add Land</a></li>
+							<!-- <li><a href="{% url 'crop:add_soiltest' %}" class="w3-bar-item w3-button ">Add Soil Test</a></li> -->
+							<li><a href="{% url 'crop:add_varity' %}" class="w3-bar-item w3-button "> Add Variety</a></li>
+							<li><a href="{% url 'crop:add_disease' %}" class="w3-bar-item w3-button "> Add Disease</a></li>
+							<li><a href="{% url 'crop:add_solution' %}" class="w3-bar-item w3-button "> Add Solution</a></li>
+							{% endif %}
+							
+						</ul>
+					</li>
+					<!-- <li class="mr-lg-4 mr-2"><a href="services.html">Services</a></li> -->
+				<li class="mr-lg-4 mr-2"><a href="{% url 'crop:about' %}">About Us</a></li>
+				<li class="mr-lg-4 mr-2"><a href="{% url 'crop:about' %}">Gallery</a></li>
+				<li class="mr-lg-4 mr-2"><a href="contact.html">Contact</a></li>
+				{% if request.user.id %}
+					<li> <a href=""><span class="glyphicon glyphicon-user mr-lg-4 mr-2"></span> {{request.user.username}}</span></a></li>
+					<li><a href="/accounts/logout mr-lg-4 mr-2"> Logout</a></li>
+
+
+				{% else %}
+					<li><a href="/accounts/signup"><span class="glyphicon glyphicon-user mr-lg-4 mr-2 "></span> Sign Up</a></li>
+					<li><a href="/accounts/login"><span class="glyphicon glyphicon-log-in mr-lg-4 mr-2"></span> Login</a></li>
+				{% endif %}
+			
+				
+				
+			</ul>
+		</nav>
+		<!-- //nav -->
+	</div>
+</header>
+<!-- //header -->
+
+<!-- banner -->
+<div class="inner-banner" id="home">
+	<div class="container">
+    
+  </div>
+  <div>
+    <br><br><br>
+    <br>
+  </div>
+  <h1 align="center" style="color:#ffffff; z-index:999; opacity: 0.9;">Event</h1>
+</div>
+<div class="container">
+    <!-- Trigger the modal with a button -->
+    {% if request.user.is_staff %}
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" >Add Event</button>
+    {% endif %}
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Add Event</h4>
+          </div>
+          <div class="modal-body">
+          
+                    
+                    <form action="{% url 'crop:event' %}" method="POST">
+                    {% csrf_token %}
+                    
+                    {{ form | crispy }}
+                    <button type="submit" class="btn btn-success">Add</button>
+                    <a href="{% url 'index'  %}"
+                    ><button type="button" class="btn btn-primary addback">Back</button></a
+                    >
+                    </form>
+                
+            
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+    
+</div>
+
+
+<div class="buyers">
+    <br>
+    
+    <div class="cardContainer">
+      {% if event %}
+        {% for b in event %}
+            <div class="productlist">
+              <div class="cardHeader">
+                <h3 style="color: #fff;vertical-align: middle;line-height: 50px;"> <b>{{ b.event_name }}</b></h3>
+              </div>
+              <div class="cardDetailContainer">
+                <div><b>Description:</b></div>
+                <div> {{b.description}} Kg</div>
+              </div>
+
+              <div class="cardDetailContainer">
+                <div><b>Location:</b></div> 
+                <div>{{b.location}} Rs per Kg</div>
+              </div>
+              <div class="cardDetailContainer">
+                <div><b>Date & Time:</b></div> 
+                <div>{{b.date}}-{{b.time}}</div>
+              </div>
+              <div class="cardDetailContainer">
+                <div><b>Organizer:</b></div> 
+                <div>{{ b.user.name }}</div>
+              </div>
+              <div class="cardDetailContainer">
+                <div><b>Organizer Phone:</b></div> 
+                <div>{{b.user.phone}}</div>
+              </div>
+              <div class="cardDetailContainer">
+                <div><b>Organizer Email:</b></div> 
+                <div>{{ b.user.email}}</div>
+              </div>
+              
+            </div>
+        {% endfor %}
+      
+    {% endif %}
+  </div>
+
+</div>
+<!-- //banner -->
+<div class="content" style="margin:100px; margin-right: 200px;">
+
+
+</div>
+
+
+
+<!-- footer -->
+	<footer class="text-center py-5">
+		<div class="container py-md-3">
+			<!-- logo -->
+			<h2 class="logo2 text-center">
+				<a href="index.html">
+					<span class="fa fa-leaf"></span> Farm Smart
+				</a>
+			</h2>
+			<!-- //logo -->
+			<!-- address -->
+			<div class="contact-left-footer mt-4">
+				<ul>
+					<li>
+						<p>
+							<span class="fa fa-map-marker mr-2"></span>Agriculture Business, 2nd Block, USA
+						</p>
+					</li>
+					<li class="mx-4">
+						<p>
+							<span class="fa fa-phone mr-2"></span>+12(345) 6789 111.
+						</p>
+					</li>
+					<li>
+						<p class="text-wh">
+							<span class="fa fa-envelope-open mr-2"></span>
+							<a href="mailto:info@example.com">Example@gmail.com</a>
+						</p>
+					</li>
+				</ul>
+			</div>
+			<!-- //address -->
+			<!-- social icons -->
+			<div class="footercopy-social my-4">
+				<ul>
+					<li>
+						<a href="#">
+							<span class="fa fa-facebook-square"></span>
+						</a>
+					</li>
+					<li class="mx-2">
+						<a href="#">
+							<span class="fa fa-twitter-square"></span>
+						</a>
+					</li>
+					<li class="">
+						<a href="#">
+							<span class="fa fa-google-plus-square"></span>
+						</a>
+					</li>
+					<li class="mx-2">
+						<a href="#">
+							<span class="fa fa-linkedin-square"></span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="fa fa-rss-square"></span>
+						</a>
+					</li>
+					<li class="ml-2">
+						<a href="#">
+							<span class="fa fa-pinterest-square"></span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!-- //social icons -->
+			<!-- copyright -->
+			<div class="w3l-copy text-center">
+				<p class="text-da">© 2019 Agro Harvest. All rights reserved | Design by
+					<a href="http://w3layouts.com/">W3layouts</a>
+				</p>
+			</div>
+			<!-- //copyright -->
+		</div>
+	</footer>
+	<!-- //footer -->
+
+	<!-- move top icon -->
+	<a href="#home" class="move-top text-center"></a>
+	<!-- //move top icon -->
+
+	
+</body>
+</html>
+
+
+
+
+  
+
+
+<script>
+    $(document).ready(function() {
+      $('.modelselect').select2();
+  });
+
+ 
+
+  $(document).ready(function() {
+      $('.dealerselect').select2();
+  });
+</script>
+
+
+
+
+

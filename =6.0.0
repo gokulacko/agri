@@ -1,0 +1,19 @@
+Collecting twilio
+  Downloading https://files.pythonhosted.org/packages/15/31/ddac491fbe13df74d369378af6937ee6101a0b12ea2e89272e1e5b36f4f8/twilio-6.25.1-py2.py3-none-any.whl (937kB)
+Collecting pysocks; python_version >= "3.0" (from twilio)
+  Using cached https://files.pythonhosted.org/packages/53/12/6bf1d764f128636cef7408e8156b7235b150ea31650d0260969215bb8e7d/PySocks-1.6.8.tar.gz
+Requirement already satisfied: six in /Users/gokulakrishna/env/lib/python3.7/site-packages (from twilio) (1.11.0)
+Requirement already satisfied: requests>=2.0.0; python_version >= "3.0" in /Users/gokulakrishna/env/lib/python3.7/site-packages (from twilio) (2.20.1)
+Requirement already satisfied: PyJWT>=1.4.2 in /Users/gokulakrishna/env/lib/python3.7/site-packages (from twilio) (1.7.1)
+Requirement already satisfied: pytz in /Users/gokulakrishna/env/lib/python3.7/site-packages (from twilio) (2018.7)
+Requirement already satisfied: idna<2.8,>=2.5 in /Users/gokulakrishna/env/lib/python3.7/site-packages (from requests>=2.0.0; python_version >= "3.0"->twilio) (2.7)
+Requirement already satisfied: certifi>=2017.4.17 in /Users/gokulakrishna/env/lib/python3.7/site-packages (from requests>=2.0.0; python_version >= "3.0"->twilio) (2018.10.15)
+Requirement already satisfied: urllib3<1.25,>=1.21.1 in /Users/gokulakrishna/env/lib/python3.7/site-packages (from requests>=2.0.0; python_version >= "3.0"->twilio) (1.24.1)
+Requirement already satisfied: chardet<3.1.0,>=3.0.2 in /Users/gokulakrishna/env/lib/python3.7/site-packages (from requests>=2.0.0; python_version >= "3.0"->twilio) (3.0.4)
+Building wheels for collected packages: pysocks
+  Running setup.py bdist_wheel for pysocks: started
+  Running setup.py bdist_wheel for pysocks: finished with status 'done'
+  Stored in directory: /Users/gokulakrishna/Library/Caches/pip/wheels/22/5c/b5/12e0dfdfa85bea67b23628b6425fae715c687e947a45ee3df9
+Successfully built pysocks
+Installing collected packages: pysocks, twilio
+Successfully installed pysocks-1.6.8 twilio-6.25.1

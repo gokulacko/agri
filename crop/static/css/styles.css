@@ -1,0 +1,71 @@
+
+.cropDetailsContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background: #FEFFED;
+    margin: 50px 160px 70px 130px;
+    font-size: 16px;
+    grid-gap: 30px;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0px 10px 50px rgb(229, 231, 231);
+  }
+
+  .productlist{
+    font-size: 16px;
+    grid-gap: 10px;
+    border-radius: 20px;
+    width: 400px;
+    box-shadow: 0px 10px 50px rgb(229, 231, 231);
+  }
+
+.description{
+      margin-right: 80px !important;
+      padding-left: 50px !important;
+      padding-right: 50px !important;
+      font-size: 20px;
+
+  }
+.crop-filter{
+  margin-bottom: 17px;
+}
+.invadd {
+  margin-top: 25px;
+}
+.cardHeader{
+  background: #2ECC71;
+  border-radius: 20px 20px 0 0 ;
+  text-align: center;
+  color: #fff;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.cardContainer{
+  margin: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.cardDetailContainer{
+  display: grid;
+  grid-template-columns: 4fr 6fr;
+  grid-gap: 10px;
+  padding: 5px 20px 10px 20px;
+
+}
+.customButton{
+  width: 75px;
+  height: 30px;
+  border-radius: 10px;
+  background: green;
+  outline: none;
+  border: 1px solid green;
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  vertical-align: middle;
+  line-height: 30px;;
+}
