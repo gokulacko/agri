@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .filters import CropFilter
 
-
+import crop.helper as h
 import numpy as np
 
 from sklearn import svm, preprocessing
@@ -42,6 +42,10 @@ features = [
 
 
 def index(request):
+     # message = " Hi, gokul Notifiacation from Farm smart."
+     # data = h.sendSMS("919677844081", message)
+
+     # print(data)
      try:
           profile = m.Profile.objects.get(user__id = request.user.id)
           request.profile = profile
@@ -318,36 +322,37 @@ def preferedCrop(request):
           water__lte=land.water, 
           min_temp__lte=land.avg_temp, 
           max_temp__gte=land.avg_temp)
-     if lands:
-          clf = svm.SVC(kernel="linear", C= 1.0)
-          clf.fit(X,y)
-          
-          
-          data_df = pd.DataFrame.from_csv("crop_data.csv")
-          
-          
-          
+     clf = svm.SVC(kernel="linear", C= 1.0)
+     clf.fit(X,y)
+     
+     
+     data_df = pd.DataFrame.from_csv("crop_data.csv")
+     
+     
+     
 
-          X = np.array(data_df[features].values)
+     X = np.array(data_df[features].values)
+     print("X---", X)
+     
+
+     X = preprocessing.scale(X)
+     print("Xpre---", X)
+
+     # Z = data_df["id"].values.tolist()
+     
+     
+
+     invest_list = []
+
+     for i in range(len(X)):
           
-
-          X = preprocessing.scale(X)
-
-          Z = data_df["id"].values.tolist()
+          crop = clf.predict(X[i])[0]
+          print("crop_prected---", crop)
           
-          
-
-          invest_list = []
-
-          for i in range(len(X)):
+          if crop == 1:
                
-               crop = clf.predict(X[i])[0]
-               
-               
-               if crop == 1:
-                  
-                    crop.append(Z[i])
-               
+               crop.append(Z[i])
+          
                
 
    

@@ -11,8 +11,11 @@ from django.conf import settings
 import juspayp3 as Juspay
 
 import requests
-import dealer.models as m
 
+import time 
+from time import sleep 
+from sinchsms import SinchSMS 
+  
 
 def address_to_lat_long(address):
     # bound_lat_lng =  {"southwest":[23.63936, 68.14712], "northeast":[28.20453, 97.34466]}
@@ -42,3 +45,33 @@ def sms(to, message):
     account = "ACXXXXXXXXXXXXXXXXX"
     token = "YYYYYYYYYYYYYYYYYY"
     client = Client(account, token)
+
+
+
+# function for sending SMS 
+def sendSMS(number, message): 
+  
+    # enter all the details 
+    # get app_key and app_secret by registering 
+    # a app on sinchSMS 
+    number = number
+    app_key = '3a920ae8bc014bee983b186e809f38ab'
+    app_secret = '3cbdc5a58dd04bc2a228cb106ad81acd  '
+  
+    # enter the message to be sent 
+    client = SinchSMS(app_key, app_secret) 
+    print("Sending '%s' to %s" % (message, number)) 
+  
+    response = client.send_message(number, message) 
+    message_id = response['messageId'] 
+    response = client.check_status(message_id) 
+  
+    # keep trying unless the status retured is Successful 
+    while response['status'] != 'Successful': 
+        print(response['status']) 
+        time.sleep(1) 
+        response = client.check_status(message_id) 
+  
+    print(response['status']) 
+    return response['status']
+  

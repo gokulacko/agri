@@ -22,8 +22,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
 	
   <!-- css files -->
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-  
+  	<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+		<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <link href="{% static '/css/bootstrap.css' %}" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
     <link href="{% static '/css/style.css' %}" rel='stylesheet' type='text/css' /><!-- custom css -->
     <link href="{% static '/css/font-awesome.min.css' %}" rel="stylesheet"><!-- fontawesome css -->
@@ -49,7 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
 			<input type="checkbox" id="drop" />
 			<ul class="menu mt-md-2 ml-auto">
-				<li class="mr-lg-4 mr-2 active"><a href="indexs.html">Home</a></li>
+				<li class="mr-lg-4 mr-2 active"><a href="{% url 'index' %}">Home</a></li>
 				<li class="dropdown mr-lg-4 mr-2">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Services
 						<span class="caret"></span></a>
@@ -203,17 +205,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //Comingsoon -->
 
 <!-- footer -->
-	<footer class="text-center py-5">
+<footer class="text-center py-5">
 		<div class="container py-md-3">
 			<!-- logo -->
 			<h2 class="logo2 text-center">
 				<a href="index.html">
-					<span class="fa fa-leaf"></span> Farm Smart
+					<span class="fa fa-leaf"></span> Farm Smart.
 				</a>
 			</h2>
 			<!-- //logo -->
 			<!-- address -->
-			<div class="contact-left-footer mt-4">
+			<!-- <div class="contact-left-footer mt-4">
 				<ul>
 					<li>
 						<p>
@@ -232,7 +234,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</p>
 					</li>
 				</ul>
-			</div>
+			</div> -->
 			<!-- //address -->
 			<!-- social icons -->
 			<div class="footercopy-social my-4">
@@ -272,8 +274,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!-- //social icons -->
 			<!-- copyright -->
 			<div class="w3l-copy text-center">
-				<p class="text-da">© 2019 Agro Harvest. All rights reserved | Design by
-					<a href="http://w3layouts.com/">W3layouts</a>
+				<p class="text-da">© 2019 Farm Smart. All rights reserved.
+					
 				</p>
 			</div>
 			<!-- //copyright -->
@@ -334,12 +336,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script>
     $(document).ready(function() {
       $('.modelselect').select2();
-  });
-
- 
-
-  $(document).ready(function() {
-      $('.dealerselect').select2();
+			$('.dealerselect').select2();
   });
 </script>
 

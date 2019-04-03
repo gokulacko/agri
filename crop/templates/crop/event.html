@@ -28,7 +28,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
 	
   <!-- css files -->
-  
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link href="{% static '/css/bootstrap.css' %}" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
     <link href="{% static '/css/style.css' %}" rel='stylesheet' type='text/css' /><!-- custom css -->
@@ -55,7 +57,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
 			<input type="checkbox" id="drop" />
 			<ul class="menu mt-md-2 ml-auto">
-				<li class="mr-lg-4 mr-2 active"><a href="indexs.html">Home</a></li>
+				<li class="mr-lg-4 mr-2 active"><a href="{% url 'index' %}">Home</a></li>
 				<li class="dropdown mr-lg-4 mr-2">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Services
 						<span class="caret"></span></a>
@@ -208,17 +210,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 <!-- footer -->
-	<footer class="text-center py-5">
+<footer class="text-center py-5">
 		<div class="container py-md-3">
 			<!-- logo -->
 			<h2 class="logo2 text-center">
 				<a href="index.html">
-					<span class="fa fa-leaf"></span> Farm Smart
+					<span class="fa fa-leaf"></span> Farm Smart.
 				</a>
 			</h2>
 			<!-- //logo -->
 			<!-- address -->
-			<div class="contact-left-footer mt-4">
+			<!-- <div class="contact-left-footer mt-4">
 				<ul>
 					<li>
 						<p>
@@ -237,7 +239,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</p>
 					</li>
 				</ul>
-			</div>
+			</div> -->
 			<!-- //address -->
 			<!-- social icons -->
 			<div class="footercopy-social my-4">
@@ -277,8 +279,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!-- //social icons -->
 			<!-- copyright -->
 			<div class="w3l-copy text-center">
-				<p class="text-da">© 2019 Agro Harvest. All rights reserved | Design by
-					<a href="http://w3layouts.com/">W3layouts</a>
+				<p class="text-da">© 2019 Farm Smart. All rights reserved.
+					
 				</p>
 			</div>
 			<!-- //copyright -->
